@@ -1,0 +1,102 @@
+#root {
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+:root {
+  --color-ambientLayer: hsla(207, 0%, 34%, 0.6413483427761327);
+  --color-h: 308;
+}
+
+body {
+  background: purple;
+  overflow: hidden;
+}
+
+.app {
+  background: pink;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.header {
+  border: 1px solid red;
+  flex: 0 1 100px;
+  background: brown;
+}
+
+.picker {
+  aspect-ratio: 1 / 1;
+  border: 1px solid green;
+  position: relative;
+  background: teal;
+  flex: 1 1 auto;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.hue-wheel {
+  background-image: radial-gradient(
+      closest-side circle at center,
+      var(--color-ambientLayer) 70%,
+      transparent 100%
+    ),
+    conic-gradient(
+      hsl(0, 100%, 50%) 0deg,
+      hsl(30, 100%, 50%) 30deg,
+      hsl(60, 100%, 50%) 60deg,
+      hsl(90, 100%, 50%) 90deg,
+      hsl(120, 100%, 50%) 120deg,
+      hsl(150, 100%, 50%) 150deg,
+      hsl(180, 100%, 50%) 180deg,
+      hsl(210, 100%, 50%) 210deg,
+      hsl(240, 100%, 50%) 240deg,
+      hsl(270, 100%, 50%) 270deg,
+      hsl(300, 100%, 50%) 300deg,
+      hsl(330, 100%, 50%) 330deg,
+      hsl(360, 100%, 50%) 360deg
+    );
+  display: flex;
+  cursor: grab;
+}
+
+.shade-disk {
+  margin: 10%;
+  background-image: radial-gradient(
+      closest-side circle at center,
+      hsl(var(--color-h), 50%, 50%) 0%,
+      transparent
+    ),
+    conic-gradient(
+      hsl(var(--color-h), 100%, 50%) 0turn,
+      white 0.25turn,
+      gray 0.5turn,
+      black 0.75turn,
+      hsl(var(--color-h), 100%, 50%) 1turn
+    );
+}
+
+.shade-disk,
+.hue-wheel {
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.slider-circle {
+  fill: transparent;
+  overflow: visible;
+}
+
+.draggable-circle {
+  fill: white;
+}
